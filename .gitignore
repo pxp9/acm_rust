@@ -2,3 +2,6 @@ minigrep/target
 minigrep/output.txt
 minigrep/output2.txt
 linked_list/target
+linked_list_second/target
+Concurrencia_rust/target
+mini_macro/target

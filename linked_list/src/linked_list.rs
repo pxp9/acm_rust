@@ -42,6 +42,7 @@ where
                 write!(f, "]")
             }
             Some(boxed) => {
+                // Option<&Box<Node<T>>>
                 let mut next_opt = (**boxed).next.as_ref();
                 if let None = next_opt {
                     write!(f, "{}]", **boxed)
@@ -118,7 +119,7 @@ where
     #[allow(dead_code)]
     pub fn into_iter(self) -> IntoIter<T>
     where
-        T: std::fmt::Display,
+        T: fmt::Display,
     {
         IntoIter(self)
     }
