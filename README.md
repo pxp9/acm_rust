@@ -13,37 +13,46 @@ git clone https://github.com/pxp9/acm_rust.git
 ## INSTALL RUST
 
 ```
-$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 ## RUN AND COMPILE 
 
 ```
-$ cd some_proyect
+cd some_proyect
+```
 
-$ cargo run
+```
+cargo run
 ```
 
 ## Some Proyects need Nightly Rust to compile in order to use it 
 - Install Nightly Rust 
 ```
-$ rustup toolchain install nightly
+rustup toolchain install nightly
 ```
 - Set Nightly Rust only for one Proyect
 ```
-$ cd some_proyect
+cd some_proyect
+```
 
-$ rustup override set nightly
+```
+rustup override set nightly
 ```
 - Set Nightly Rust default
 ```
-$ rustup default nightly
+rustup default nightly
 ```
 - In order to view if nightly rust is set 
 ```
-$ rustc --version
+rustc --version
+```
+
+- Should Prompt something like this if is set
+```
 rustc 1.60.0-nightly (498eeb72f 2022-01-31)
 ```
+
 - Also you could see all Rust versions
 ```
-$ rustup toolchain list
+rustup toolchain list
 ```
