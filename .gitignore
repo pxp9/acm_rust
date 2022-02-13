@@ -6,3 +6,15 @@ linked_list_second/target
 Concurrencia_rust/target
 mini_macro/target
 pattern_matching/target
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+charla/svg-inkscape
+*.gz
+*.toc
+*.vrb
+
