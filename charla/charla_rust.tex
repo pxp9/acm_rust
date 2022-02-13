@@ -1,0 +1,906 @@
+\documentclass{beamer}
+
+\mode<presentation>{
+  \usetheme{Madrid}
+}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{pmboxdraw}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[spanish]{babel}
+\usepackage{svg}
+\usepackage{listings, listings-rust}
+\usepackage{hyperref}
+\definecolor{hyperlink}{RGB}{128, 0, 128}
+\hypersetup{
+  colorlinks=true,
+  allcolors=.,    
+  urlcolor=hyperlink,
+  pdfpagemode=FullScreen,
+}
+\setsvg{inkscapeexe = "/usr/bin/inkscape"  , inkscapeopt=-z -D}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+\graphicspath{{Img/}}
+\setlength{\arrayrulewidth}{0.25mm}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Rust, el lenguaje]{Rust, el lenguaje}
+
+\author{ACM, Pepe Márquez Romero}
+\institute[]{
+  Rust, el lenguaje \\
+  \medskip
+  \href{https://twitter.com/acmupm}{@acmupm} \\
+  \medskip
+  \href{https://doc.rust-lang.org/book/ch01-01-installation.html}{Guía de instalación de Rust}
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Índice}
+
+\tableofcontents
+\end{frame}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Tipos básicos.}
+
+\begin{frame}[fragile]
+  \frametitle{Tipos básicos de Rust I}
+  \begin{center}
+  \begin{tabularx}{0.8\textwidth \color{blue}} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X | }
+    \hline
+    \multicolumn{3}{|c|}{\color{black}Integer types} \\
+    \hline
+    \color{black}\color{black}Length & \color{black}Signed & \color{black}Unsigned \\
+   \hline
+   \color{black}8-bit  & \color{black}i8  & \color{black}u8  \\
+  \hline
+  \color{black}16-bit & \color{black}i16 & \color{black}u16 \\
+  \hline
+  \color{black}32-bit & \color{black}i32 & \color{black}u32 \\
+  \hline
+   \color{black}64-bit & \color{black}i64 & \color{black}u64 \\
+  \hline
+  \color{black}128-bit & \color{black}i128 & \color{black}u128 \\
+ \hline
+  \color{black}arch & \color{black}isize & \color{black}usize \\
+  \hline
+  \end{tabularx} 
+  \bigbreak
+  
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Tipos básicos de Rust II}
+  \begin{center}
+    \begin{tabularx}{0.8\textwidth \color{blue}} { 
+      | >{\centering\arraybackslash}X 
+      | >{\centering\arraybackslash}X | }
+      \hline
+      \multicolumn{2}{|c|}{\color{black}Integer literals types} \\
+      \hline
+      \color{black}Number literals & \color{black}Example  \\
+    \hline
+    \color{black}Decimal & \color{black}98\_222 \\
+    \hline
+    \color{black}Hex & \color{black}0xff  \\
+    \hline
+    \color{black}Octal & \color{black}0o77  \\
+    \hline
+    \color{black}Binary & \color{black}0b1111\_0000 \\
+   \hline
+   \color{black}Bytes (u8 only) & \color{black}b'A'  \\
+    \hline
+    \end{tabularx}
+\end{center} 
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tipos básicos de Rust III}
+  \begin{center}
+    \begin{tabularx}{0.8\textwidth \color{blue}} { 
+      | >{\centering\arraybackslash}X 
+      | >{\centering\arraybackslash}X | }
+      \hline
+      \multicolumn{2}{|c|}{\color{black} Float number types} \\
+      \hline
+     \color{black} 32-bits & \color{black}f32  \\
+    \hline
+    \color{black} 64-bits & \color{black}f64  \\
+    \hline
+    \end{tabularx} 
+    \bigbreak
+    \bigbreak
+  \begin{tabularx}{0.8\textwidth \color{blue}} { 
+    | >{\centering\arraybackslash}X 
+    | >{\centering\arraybackslash}X | }
+    \hline
+    \multicolumn{2}{|c|}{ \color{black} Primitive string and char } \\
+    \hline
+    \color{black}str & \color{black}char\\
+  \hline
+  \end{tabularx}
+  \end{center}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Cargo, el mejor amigo de Rust.}
+\begin{frame}[fragile]
+  \frametitle{Algunos comandos de cargo}
+  \begin{lstlisting}[language=Rust , style=boxed_command]
+$ cargo new acm_rust
+
+$ cargo build 
+
+$ cargo run
+
+$ cargo test
+
+$ cargo doc --open
+// Mencion honorifica a rustup
+
+$ rustup toolchain install nightly
+
+$ rustup override set nightly\end{lstlisting}
+
+\end{frame}
+%------------------------------------------------
+
+\section{Conceptos básicos de Rust.}
+\begin{frame}[fragile]
+  \frametitle{Declaración de variables }
+  \begin{lstlisting}[language=Rust, style=boxed ]
+let x : u8 = 32 ; // variable especificando tipo  
+let y = 32 ; // infiere el tipo i32
+let mut z : f32 = 3.4;// variable mutable
+let mut n = 43.77;//variable mutable infiere tipo f64
+const PI : f64 = 3.14159;
+// se evalua en tiempo de compilacion\end{lstlisting}
+  \end{frame}
+
+  \begin{frame}[fragile]
+    \frametitle{Ejemplo básico}
+    \begin{block}{Un poco de código para familiarizarse con Rust}
+      Vamos a ver con estos ejemplos algunas cosas de Rust que hace que sea un poco diferente a otros lenguajes.
+    \end{block}  
+      \begin{lstlisting}[language=Rust, style=boxed ]
+fn main (){
+  let x :u8 = 22;
+  println!("Hello World :D !");
+  let s : &str = "hello"; // ojo dos tipos de string
+  let st : String = String::from("world");
+  let mut x : u32 = 74; // ojo al shadowing
+  println!("{}" , x);// imprime 74 
+  x = 42;// mutable gracias shadowing
+  println!("{}" , x);// imprime 42 
+}\end{lstlisting}
+  \end{frame}
+      
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+\section{Ownership.}
+\begin{frame}
+  \frametitle{¿Qué es el Ownership?}
+  \begin{block}{Ownership}
+    Sistema de Rust para saber cuando debe liberar la memoria de una instancia que se realiza con la llamada del método drop.
+  \end{block}
+  \begin{block}{¿En qué consiste el Ownership?}
+    Se basa, en que toda instancia tiene dueño, y que el dueño es el ámbito donde se ha declarado la instancia y cuando termina ese ámbito se liberan las instancias, que no han sido movidas a otros ámbitos, es decir, que no han cambiado de dueño.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reglas del Ownership}
+  
+\begin{enumerate}[1.]
+  \item Each value in Rust has a variable that’s called its owner. 
+  \pause
+  \item[2.] There can only be one owner at a time.
+  \pause  
+  \item[3.] When the owner goes out of scope, the value will be dropped.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Consecuencias del Ownership}
+    \begin{figure}[0.6\textwidth]
+      \center \includesvg[inkscapelatex=false, width=0.6\columnwidth]{ownership_8}
+      \caption{String en Rust.}
+      \label{fig:string}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Consecuencias del Ownership}
+  \begin{figure}[0.5\textwidth]
+    \center \includesvg[inkscapelatex=false, width=0.5\columnwidth]{ownership_7}
+    \caption{Soft copy.}
+    \label{fig:soft}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Consecuencias del Ownership}
+  \begin{figure}[0.5\textwidth]
+    \center \includesvg[inkscapelatex=false, width=0.5\columnwidth]{ownership_6}
+    \caption{Deep copy.}
+    \label{fig:deep}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Consecuencias del Ownership}
+  \begin{figure}[0.5\textwidth]
+    \center \includesvg[inkscapelatex=false,width=0.5\columnwidth]{ownership_5}
+    \caption{Lo que hace Rust cuando no tiene el Copy Trait implentado.}
+    \label{fig:copy_trait}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo donde el Ownership afecta al código}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+fn its_mine_haha(s : String){ 
+  println!("\"{}\" its mine !" , s); 
+}
+fn main (){
+  let x :u8 = 22;
+  let y = x ; // copia el valor de x en y 
+  // Ojo al Copy Trait
+  println!("{}" , x);// imprime 22
+  println!("{}" , y);// imprime 22
+  let z : String = String::from("hi");
+  let w = z ;
+  println!("{}" , w);// Ojo z se ha movido a w 
+  //luego z no se puede usar 
+  its_mine_haha(w);// w se mueve a la funcion 
+  // luego w no se puede usar aqui
+}\end{lstlisting}
+
+\end{frame}
+
+%------------------------------------------------
+% Borrowing 
+\section{Borrowing.}
+\begin{frame}
+  \frametitle{Borrowing}
+  \begin{block}{¿Qué es el Borrowing?}
+    Es el mecanismo que permite que puedas usar ciertas instancias sin capturar
+    el owner de esa instancia, para que siga viviendo en el ámbito de donde viene.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Reglas del Borrowing}
+  
+\begin{enumerate}[1.]
+  \item At any given time, you can have either one mutable reference or any number of immutable references. 
+  \pause
+  \item[2.] References must always be valid.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Consecuencias del Borrowing}
+  
+\begin{enumerate}[1]
+  \item Eliminación de los data races.
+  \pause
+  \begin{enumerate}[1.1]
+  \item Two or more pointers access the same data at the same time.
+  \pause
+  \item [1.2] At least one of the pointers is being used to write to the data.
+  \pause
+  \item [1.3] There’s no mechanism being used to synchronize access to the data.
+  \end{enumerate}
+  
+  \bigbreak
+  \pause
+  \item Eliminación de las Dangling References.
+\end{enumerate}
+\end{frame}
+%\includegraphics[scale = 0.50]{tablaHerencia.png}
+\begin{frame}[fragile]
+  \frametitle{Ejemplos de Borrowing}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+fn out_print(s: &String) {
+  println!("\"{}\" its printed from out_print !", s);
+}
+fn main() {
+  let mut z: String = String::from("hi");
+  out_print(&z);
+  z = String::from("hello");
+  //*(&mut z) = String::from("hello");
+  //let h: &mut String = &mut z;
+  //let j: &mut String = &mut z;
+  println!("\"{}\" its printed from main!", z);
+  z.push_str("_there");
+  println!("\"{}\" its printed from main!", z);
+}\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Rich Pattern Matching.}
+
+\begin{frame}
+  \frametitle{Rich Pattern Matching. }
+  Formas de hacer pattern matching
+  \begin{enumerate}[1.]
+    \item Sentencia match.
+    \pause
+    \item    [2.] Setencia if let.
+    \pause
+    \item    [3.] Sentencia while let .
+    \pause
+    \item    [4.] Macro matches! .
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Enumerales que enriquecen los patrones}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+pub enum Result<T, E> {
+  Ok(T),
+  Err(E),
+}
+pub enum Option<T> {
+  None,
+  Some(T),
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplos de Pattern Matching I}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+use std::env;
+use std::process;
+fn main() {
+  let mut args = env::args().skip(1);
+  //std::iter::Skip<env::Args>
+  let arg : Option<String> = args.next();
+  let some_st: String;
+  if let None = arg {
+    eprintln!("Me tienes que llamar con un 
+    entero sin signo de 8 bits");
+    process::exit(3);
+  } else {
+    some_st = arg.unwrap(); //inicializando el valor
+  }
+  println!("Tratamos de parsear {}", some_st);\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplos de Pattern Matching II}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+  match some_st.parse::<u8>() {
+    Ok(1) => println!("Es uno :D"),
+    Ok(2) => println!("Es dos :D"),
+    Ok(value) => println!("Es {} :D", value),
+    Err(e) => {
+      eprintln!("No se puede pasear por {}", e);
+      process::exit(2);
+    }
+  }
+}//llave del main\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplos de Pattern Matching III}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+use std::io::stdin
+fn main() {
+  let vector:Vec<String> = vec!["hi".to_string(),
+    "hello".to_string(), "there".to_string()];
+  let mut iter1 = vector.iter().peekable();
+  while let Some(_) = iter1.peek() {
+    println!("{}", iter1.next().unwrap());
+  }
+  let mut string: String = String::new();
+  while matches!(stdin().read_line(&mut string), Ok(_))
+    && !string.eq("") { 
+    // haz algo con la linea de stdin
+    string = String::from("");
+  }
+}\end{lstlisting}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Functional Programmers essentials.}
+\begin{frame}
+  \frametitle{Funciones anónimas (Closures) I}
+  \begin{enumerate}[1.]
+    \item FnOnce
+    \pause
+    \item    [2.] FnMut.
+    \pause
+    \item    [3.] Fn.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Funciones anónimas (Closures) II}
+    \center \includesvg[inkscapelatex=false, width=1\columnwidth]{closures}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Ejemplos Funciones anónimas (Closures) }
+  \begin{lstlisting}[language=Rust, style=boxed ]
+fn main() {
+  let x = String::from("hello there !");
+  // FnOnce closure si mueve el valor y se pierde
+  let consume_and_return_x = move |y| y;
+  println!("{}", consume_and_return_x(x));
+  // Si la llamas otra vez no compila
+  // FnMut closure cambia algun valor
+  let square = |x: &mut u8| *x *= *x;
+  let mut z: u8 = 5;
+  square(&mut z);
+  println!("{}", z);
+  // Fn closure si no cambia ningun valor
+  let n: u8 = 4;
+  let mult_by_two = |x: &u8| -> u8 { *x * 2 };
+  println!("El doble de {} es {}", n, mult_by_two(&n))
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Colecciones e iteradores con Closures}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+pub fn search_case_insensitive<'a>(query: &str, 
+contents: &'a str) -> Vec<&'a str> {
+  // Atencion al iterador lines
+  let query: &str = &(query.to_lowercase());
+  contents
+    .lines()
+    .filter(|line| 
+      line.to_lowercase().contains(query))
+    .collect()
+}\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Special Traits.}
+\begin{frame}
+  \frametitle{Special Traits}
+  \begin{enumerate}[1.]
+    \item Display.
+    \pause
+    \item    [2.] Debug.
+    \pause
+    \item    [3.] Clone.
+    \pause
+    \item    [4.] Copy.
+    \pause
+    \item    [5.] Operator Traits : Deref, DerefMut, Add, Mul, Fn, FnMut, FnOnce, Drop ...
+    \pause
+    \item    [6.] Sized.
+    \pause
+    \item    [7.] Iter Traits: Iterator, FromIterator, IntoIterator, DoubleEndedIterator...
+    \pause
+    \item    [8.] Comparation Traits :  Eq, PartialEq, Ord, PartialOrd.
+    \pause
+    \item    [9.] Hash.
+    \pause
+    \item    [10.] Future.
+    
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Special Traits I}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+use std::fmt;
+use std::ops::Add;
+#[derive(Debug, Copy, Clone, PartialEq, Hash)]
+struct Point {
+  x: i32,
+  y: i32,
+}
+impl fmt::Display for Point {
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "({}, {})", self.x, self.y)
+  }
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Special Traits II}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+impl Point {
+  fn new(x: i32, y: i32) -> Point {
+    Point { x, y }
+  }
+}
+trait OutlinePrint: fmt::Display {
+  fn outline_print(&self) {
+    let output = self.to_string();
+    let len = output.len();
+    println!("\t{}", "*".repeat(len + 4));
+    println!("\t*{}*", " ".repeat(len + 2));
+    println!("\t* {} *", output);
+    println!("\t*{}*", " ".repeat(len + 2));
+    println!("\t{}", "*".repeat(len + 4));
+  }
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Special Traits III}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+impl OutlinePrint for Point {}
+// Implementamos el operador +
+impl Add for Point {
+  type Output = Point;
+  fn add(self, other: Point) -> Point {
+    Point {
+      x: self.x + other.x,
+      y: self.y + other.y,
+    }
+  }
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Special Traits IV}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+fn main() {
+  let p: Point = Point::new(32, 6);
+  p.outline_print();
+  println!("+++++++++++++++++++++++++++++");
+  let p2: Point = Point::new(6, 32);
+  p2.outline_print();
+  println!("=============================");
+  let p3: Point = p + p2;
+  p3.outline_print();
+}\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\section{Fearless Concurrency}
+\begin{frame}
+  \frametitle{Fearless Concurrency}
+  \begin{enumerate}[1.]
+    \item Safe Rust elimina los Data Races con el sistema de Borrowing, (ojo puedes seguir teniendo un General Race). 
+    \pause
+    \item[2.] Los hilos pueden devolver valores.   
+    \pause 
+    \item[3.] Los traits Send y Sync , permiten mandar valores a otros hilos y permiten compartir valores entre hilos respectivamente (Safe Rust).
+    \pause
+    \item[4.] Structs de Sincronización entre hilos Arc , Mutex , RwLock y Atomic types.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo concurrencia}
+  \begin{lstlisting}[language=Rust , style=boxed ]
+use std::thread;
+use std::time::Duration;
+pub struct Th {
+  number: u32,
+  wait_time: u64,
+}
+impl Th {
+  pub fn new(number: u32, wait_time: u64) -> Self {
+    Th { number, wait_time }
+  }
+  pub fn start(self) -> std::thread::JoinHandle<()> {
+    thread::spawn(move || {
+    self.run();
+    })
+  }\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo concurrencia}
+  \begin{lstlisting}[language=Rust , style=boxed ]
+  pub fn run(&self) {
+    println!(
+    "Thread {} ha empezado y tiene 
+    un tiempo de espera {}",self.number, self.wait_time
+    );
+    let time = Duration::from_millis(self.wait_time);
+    thread::sleep(time);
+    println!(
+    "Thread {} ha terminado y tenia 
+    un tiempo de espera {}",self.number, self.wait_time
+    );
+  }
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo concurrencia}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+#![feature(thread_is_running)]
+mod primer;
+use crate::primer::*;
+use rand::{thread_rng, Rng};
+use std::thread::JoinHandle;
+fn main() {
+  let mut rng = thread_rng();
+  let n: u32 = rng.gen_range(1..=10000);
+  let mut threads: Vec<JoinHandle<()>> = vec![];
+  for i in 1..=n {
+    let time: u64 = rng.gen_range(0..=3) * 1000;
+    let t = Th::new(i, time);
+    let t = t.start();
+    threads.push(t);
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo concurrencia}
+  \begin{lstlisting}[language=Rust, style=boxed ]
+  let mut i: usize = 0;
+  while i < threads.len() {
+    let th = threads.swap_remove(0);
+    // Ojo funcion unicamente en Nightly Rust.
+    if th.is_running() {
+      th.join().unwrap();
+    }
+    i = i + 1;
+  }
+  println!("Main Siempre ultimo :D");
+}// llave del main\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\section{Smart Pointers y lifetimes}
+\begin{frame}
+  \frametitle{Smart Pointers I}
+  \begin{block}{¿Qué son los Smart Pointers?}
+    Un Smart Pointer es un tipo de dato abstracto que simula ser un puntero mientras que implementa algunas funcionalidades, como la gestión automática de memoria.
+  \end{block}
+  \pause
+  \bigbreak
+  Tipos de Smart Pointers.
+  \begin{enumerate}[1.]
+    \item Box
+    \pause
+    \item [2.] Rc (Reference Counting)
+    \pause
+    \item [3.] Vec 
+    \pause
+    \item [4.] RefCell
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Smart Pointer I}
+  \begin{lstlisting}[language=Rust , style=boxed ]
+use std::fmt;
+#[derive(Debug, PartialEq, Eq)]
+pub struct List<T> where T: fmt::Display, {
+  head: Link<T>,
+  len: usize,
+}
+type Link<T> = Option<Box<Node<T>>>;
+#[derive(Debug, PartialEq, Eq)]
+struct Node<T> where T: fmt::Display,{
+  elem: T,
+  next: Link<T>,
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Smart Pointer II}
+  \begin{lstlisting}[language=Rust , style=boxed ]
+impl<T> fmt::Display for List<T> where T: fmt::Display, {
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "[")?;
+    let opt = self.head.as_ref();
+    match opt {
+      None => {
+        write!(f, "]")
+      }
+      Some(boxed) => {
+        // Option<&Box<Node<T>>>
+        let mut next_opt = (**boxed).next.as_ref();
+        if let None = next_opt {
+          write!(f, "{}]", **boxed)
+        }\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Smart Pointer II}
+  \begin{lstlisting}[language=Rust , style=boxed ]
+        else {
+          write!(f, "{}", **boxed)?;
+          while let Some(boxx) = next_opt {
+            next_opt = (**boxx).next.as_ref();
+            if let None = next_opt {
+              write!(f, "{}]", **boxx)?;
+            } else {
+              write!(f, " -> {}", **boxx)?;
+            }
+          }
+          Ok(())
+        }
+      }// llave Some
+    }//llave match
+  }// llave fmt
+}// llave impl\end{lstlisting}
+\end{frame}
+%------------------------------------------------
+\section{Unsafe Rust}
+\begin{frame}
+  \frametitle{Unsafe Rust}
+  \begin{block}{¿Qué es Unsafe Rust?}
+    Es una parte del lenguaje Rust que permite realizar algunas funcionalidades que no están permitidas en Safe Rust.
+  \end{block}
+  \bigbreak
+  Funcionalidades que permite hacer Unsafe Rust.
+  \begin{enumerate}[1.]
+    \item Dereference raw pointers.
+    \pause
+    \item [2.] Call unsafe functions (including C functions, compiler intrinsics, and the raw allocator).
+    \pause
+    \item [3.] Implement unsafe traits (Send and Sync).
+    \pause
+    \item [4.] Mutate statics.
+    \pause
+    \item [5.] Access fields of unions.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo Unsafe Rust}
+  \begin{lstlisting}[language=Rust , style=boxed]
+#[derive(Debug, PartialEq, Eq)]
+pub struct List<T> {
+  head: Link<T>,
+  tail: Link<T>,
+  len: usize,
+}
+// Atencion raw pointer
+type Link<T> = *mut Node<T>;
+#[derive(Debug, PartialEq, Eq)]
+struct Node<T> {
+  elem: T,
+  next: Link<T>,
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo Unsafe Rust}
+  \begin{lstlisting}[language=Rust , style=boxed]
+impl<T> fmt::Display for List<T> 
+where 
+T: fmt::Display + Clone, 
+{
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    write!(f, "[")?;
+    unsafe {
+      if self.head.is_null() {
+        write!(f, "]")
+      } else {
+        let mut aux = self.head;
+        write!(f, "{}", (*aux).elem)?;
+        aux = (*aux).next;
+        if aux.is_null() {
+          write!(f, "]")
+        }\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo Unsafe Rust}
+  \begin{lstlisting}[language=Rust , style=boxed]
+
+        else {
+            while !aux.is_null() {
+            write!(f, " -> {}", (*aux).elem)?;
+            aux = (*aux).next;
+            }
+            write!(f, "]")
+        }
+      }// segundo else
+    }// unsafe
+  } // fmt
+} // impl\end{lstlisting}
+\end{frame}
+
+
+%------------------------------------------------
+\section{Macros!}
+\begin{frame}
+  \frametitle{Macros!}
+  \begin{block}{¿Qué son las Macros?}
+  Son la forma de escribir código que escribe otro código. Su principal objetivo es reducir el código drásticamente, generalizar código ya realizado. Usar macros es la forma de hacer Metaprogramming en Rust.  
+  \end{block}
+  \pause
+  \bigbreak
+  Tipos de Macros.
+  \begin{enumerate}[1.]
+    \item Custom \#[derive] macros that specify code added with the derive attribute used on structs and enums.
+    \pause
+    \item [2.] Attribute-like macros that define custom attributes usable on any item. (Tienen pinta de funciones).
+    \pause
+    \item [3.] Function-like macros that look like function calls but operate on the tokens specified as their argument. (Parecen funciones como ejecucion pero tienen argumentos variables)(println! , write! , assert! \dots).
+  \end{enumerate}
+  \href{https://veykril.github.io/tlborm/decl-macros/macro_rules.html\#metavariables}{Metavariables en Declarative Macros}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo Macros!}
+  \begin{lstlisting}[language=Rust , style=boxed]
+#[path="../../linked_list_second/src/
+linked_list_second.rs"]
+mod linked_list_second;
+use crate::linked_list_second::List;
+macro_rules! multiply_add {
+    ($a:expr , $b:expr, $c:expr , u16) => {
+        ($b + $c) * $a
+    };
+    ($a:expr , $b:expr, $c:expr , &List<u16>) => {
+        (&($b + $c)) * $a
+    };
+}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ejemplo Macros!}
+  \begin{lstlisting}[language=Rust , style=boxed]
+fn main() {
+  let mut list: List<u16> = List::new();
+  let mut list_2: List<u16> = List::new();
+  list.append(73);
+  list_2.append(1729);
+  println!("{}", multiply_add!(2, 3, 4, u16));
+  println!(
+    "{}",
+    multiply_add!(2 + 1, &(&list + &list_2),
+      &List::new(), &List<u16>)
+  );
+}\end{lstlisting}
+\end{frame}
+%------------------------------------------------
+\section{Libros de referencia.}
+\begin{frame}
+  \frametitle{Libros de referencia}
+  \begin{enumerate}[1.]
+    \item \href{https://doc.rust-lang.org/book/}{Rust book}
+    \item [2.] \href{https://doc.rust-lang.org/nomicon/}{The Rustonomicon.} 
+    \item [3.] \href{https://doc.rust-lang.org/std/index.html}{Documentación oficial std Rust.}
+    \item [4.] \href{https://doc.rust-lang.org/stable/reference/}{Rust Reference} 
+    \item [5.] \href{https://rust-unofficial.github.io/too-many-lists/}{Libro Linked List.}
+    \item [6.] \href{https://zhauniarovich.com/post/2020/2020-12-closures-in-rust/}{Diagrama Closures.}
+    \item [7.] \href{https://veykril.github.io/tlborm/}{The Little Book of Rust Macros.}
+    \item [8.] \href{https://cheats.rs/}{Rust Cheat sheet}
+    \item [9.] \href{https://github.com/brson/rust-anthology/blob/master/master-list.md\#rust-anthology-master-list}{Rust anthology.} 
+  \end{enumerate}
+\end{frame}
+%------------------------------------------------
+%%%% FIN LO CONSEGUISTE LEER ENTERO xD %%%%
+\end{document} 

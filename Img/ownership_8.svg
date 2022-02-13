@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+
+ <g class="layer">
+  <title>Layer 1</title>
+  <polygon fill="#ffffff" id="svg_595" points="1.848109245300293,428.9113853176623 1.848109245300293,1.2536039961560164 640.6971802711487,1.2536039961560164 640.6971802711487,428.9113853176623 1.848109245300293,428.9113853176623 " stroke="transparent"/>
+  <!-- table0 -->
+  <g class="node" id="svg_593" transform="matrix(2.69557, 0, 0, 2.7414, 12.6304, 420.802)">
+   <title>table0</title>
+   <polyline fill="none" id="svg_596" points="8,-125.0417891740799 96,-125.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_597" text-anchor="start" x="45.7759" y="-130.841789">s1</text>
+   <polygon fill="none" id="svg_598" points="8,-105.0417891740799 8,-125.0417891740799 60,-125.0417891740799 60,-105.0417891740799 8,-105.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_599" text-anchor="start" x="18.8413" y="-110.841789">name</text>
+   <polygon fill="none" id="svg_600" points="60,-105.0417891740799 60,-125.0417891740799 96,-125.0417891740799 96,-105.0417891740799 60,-105.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_601" text-anchor="start" x="62.8413" y="-110.841789">value</text>
+   <polygon fill="none" id="svg_602" points="8,-85.0417891740799 8,-105.0417891740799 60,-105.0417891740799 60,-85.0417891740799 8,-85.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_603" text-anchor="start" x="26.2241" y="-90.841789">ptr</text>
+   <polygon fill="none" id="svg_604" points="60,-85.0417891740799 60,-105.0417891740799 96,-105.0417891740799 96,-85.0417891740799 60,-85.0417891740799 " stroke="#000000"/>
+   <polygon fill="none" id="svg_605" points="8,-65.0417891740799 8,-85.0417891740799 60,-85.0417891740799 60,-65.0417891740799 8,-65.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_606" text-anchor="start" x="25.4482" y="-70.841789">len</text>
+   <polygon fill="none" id="svg_607" points="60,-65.0417891740799 60,-85.0417891740799 96,-85.0417891740799 96,-65.0417891740799 60,-65.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_608" text-anchor="start" x="74.5" y="-70.841789">5</text>
+   <polygon fill="none" id="svg_609" points="8,-45.041789174079895 8,-65.0417891740799 60,-65.0417891740799 60,-45.041789174079895 8,-45.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_610" text-anchor="start" x="10.6826" y="-50.841789">capacity</text>
+   <polygon fill="none" id="svg_611" points="60,-45.041789174079895 60,-65.0417891740799 96,-65.0417891740799 96,-45.041789174079895 60,-45.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_612" text-anchor="start" x="74.5" y="-50.841789">5</text>
+  </g>
+  <!-- table1 -->
+  <g class="node" id="svg_592" transform="matrix(2.69557, 0, 0, 2.7414, 12.6304, 420.802)">
+   <title>table1</title>
+   <polygon fill="none" id="svg_613" points="148.5,-105.0417891740799 148.5,-125.0417891740799 185.5,-125.0417891740799 185.5,-105.0417891740799 148.5,-105.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_614" text-anchor="start" x="151.4482" y="-110.841789">index</text>
+   <polygon fill="none" id="svg_615" points="185.5,-105.0417891740799 185.5,-125.0417891740799 221.5,-125.0417891740799 221.5,-105.0417891740799 185.5,-105.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_616" text-anchor="start" x="188.3413" y="-110.841789">value</text>
+   <polygon fill="none" id="svg_617" points="148.5,-85.0417891740799 148.5,-105.0417891740799 185.5,-105.0417891740799 185.5,-85.0417891740799 148.5,-85.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_618" text-anchor="start" x="163.5" y="-90.841789">0</text>
+   <polygon fill="none" id="svg_619" points="185.5,-85.0417891740799 185.5,-105.0417891740799 221.5,-105.0417891740799 221.5,-85.0417891740799 185.5,-85.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_620" text-anchor="start" x="200" y="-90.841789">h</text>
+   <polygon fill="none" id="svg_621" points="148.5,-65.0417891740799 148.5,-85.0417891740799 185.5,-85.0417891740799 185.5,-65.0417891740799 148.5,-65.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_622" text-anchor="start" x="163.5" y="-70.841789">1</text>
+   <polygon fill="none" id="svg_623" points="185.5,-65.0417891740799 185.5,-85.0417891740799 221.5,-85.0417891740799 221.5,-65.0417891740799 185.5,-65.0417891740799 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_624" text-anchor="start" x="200.3931" y="-70.841789">e</text>
+   <polygon fill="none" id="svg_625" points="148.5,-45.041789174079895 148.5,-65.0417891740799 185.5,-65.0417891740799 185.5,-45.041789174079895 148.5,-45.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_626" text-anchor="start" x="163.5" y="-50.841789">2</text>
+   <polygon fill="none" id="svg_627" points="185.5,-45.041789174079895 185.5,-65.0417891740799 221.5,-65.0417891740799 221.5,-45.041789174079895 185.5,-45.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_628" text-anchor="start" x="201.5552" y="-50.841789">l</text>
+   <polygon fill="none" id="svg_629" points="148.5,-25.041789174079895 148.5,-45.041789174079895 185.5,-45.041789174079895 185.5,-25.041789174079895 148.5,-25.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_630" text-anchor="start" x="163.5" y="-30.841789">3</text>
+   <polygon fill="none" id="svg_631" points="185.5,-25.041789174079895 185.5,-45.041789174079895 221.5,-45.041789174079895 221.5,-25.041789174079895 185.5,-25.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_632" text-anchor="start" x="201.5552" y="-30.841789">l</text>
+   <polygon fill="none" id="svg_633" points="148.5,-5.041789174079895 148.5,-25.041789174079895 185.5,-25.041789174079895 185.5,-5.041789174079895 148.5,-5.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_634" text-anchor="start" x="163.5" y="-10.841789">4</text>
+   <polygon fill="none" id="svg_635" points="185.5,-5.041789174079895 185.5,-25.041789174079895 221.5,-25.041789174079895 221.5,-5.041789174079895 185.5,-5.041789174079895 " stroke="#000000"/>
+   <text fill="#000000" font-family="Times,serif" font-size="14" id="svg_636" text-anchor="start" x="200" y="-10.841789">o</text>
+  </g>
+  <!-- table0&#45;&gt;table1 -->
+  <g class="edge" id="svg_591" transform="matrix(2.69557, 0, 0, 2.7414, 12.6304, 420.802)">
+   <title>table0:c-&gt;table1:pointee</title>
+   <path d="m78,-95.041789c0,0 31.3406,0 60.3797,0" fill="none" id="svg_637" stroke="#000000"/>
+   <polygon fill="#000000" id="svg_638" points="138.5,-98.5418883562088 148.5,-95.0417891740799 138.5,-91.5418883562088 138.5,-98.5418883562088 " stroke="#000000"/>
+  </g>
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <!-- table3 -->
+  <!-- table3&#45;&gt;table1 -->
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <!-- table3 -->
+  <!-- table4 -->
+  <!-- table3&#45;&gt;table4 -->
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <!-- table3 -->
+  <!-- table4 -->
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <!-- table3 -->
+  <!-- table3&#45;&gt;table1 -->
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <!-- table3 -->
+  <!-- table3&#45;&gt;table1 -->
+  <!-- table0 -->
+  <!-- table1 -->
+  <!-- table0&#45;&gt;table1 -->
+  <rect fill="#000000" fill-opacity="0" height="57.692312" id="svg_639" stroke="#000000" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="3" width="237.019218" x="34.27887" y="21.201906"/>
+ </g>
+</svg>
