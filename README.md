@@ -24,7 +24,7 @@ cd some_proyect
 cargo run
 ```
 
-## Some Proyects need Nightly Rust to compile in order to use it 
+## SOME PROYECTS NEED NIGHTLY RUST TO COMPILE IN ORDER TO USE IT 
 - Install Nightly Rust 
 ```
 rustup toolchain install nightly
