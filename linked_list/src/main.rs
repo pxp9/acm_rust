@@ -18,8 +18,8 @@ fn main() {
     println!("{}", format!("{}", list).red().bold());
     println!("{}", format!("{}", list.len()).blue().bold());
     list.pop().unwrap();
-    println!("\x1B[1;{}m{}", color, list); // no hace falta libreria :/
     println!("{}", format!("{}", list).red().bold());
     println!("{}", format!("{}", list).yellow().bold());
+    println!("\x1B[1;{}m{}", color, list); // no hace falta libreria :/
     println!("{}", format!("{}", list.len()).blue().bold());
 }

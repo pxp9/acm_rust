@@ -1,4 +1,3 @@
-#![feature(thread_is_running)]
 mod primer;
 use crate::primer::*;
 use rand::{thread_rng, Rng};
@@ -17,7 +16,7 @@ fn main() {
     while i < threads.len() {
         let th = threads.swap_remove(0);
         // Ojo funcion unicamente en Nightly Rust.
-        if th.is_running() {
+        if !th.is_finished() {
             th.join().unwrap();
         }
         i = i + 1;
